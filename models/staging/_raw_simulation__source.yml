@@ -1,0 +1,16 @@
+version: 2
+
+sources:
+
+  - name: RAW_SIMULATION
+    schema: RAW_SIMULATION
+    database: RAW
+
+    tables:
+      - name: CLIENTES
+      - name: ESTOQUE
+      - name: LOJAS
+      - name: MAPEAMENTO_CLIENTE_PRODUTO
+      - name: PRODUTOS
+      - name: VENDAS
+      - name: EXCHANGE_RATES

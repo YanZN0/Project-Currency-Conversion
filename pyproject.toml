@@ -6,9 +6,10 @@ authors = ["Yan Robim <yanrobim@gmail.com>"]
 readme = "README.md"
 
 [tool.poetry.dependencies]
-python = "3.10"
+python = ">3.9,<3.11"
 dbt-core = "^1.9.4"
 dbt-snowflake = "^1.9.2"
+sqlfluff-templater-dbt = "^3.4.0"
 
 
 [tool.poetry.group.dev.dependencies]
