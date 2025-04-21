@@ -12,6 +12,24 @@ WITH columns_rename AS (
 
     FROM {{ source('RAW_SIMULATION', 'VENDAS') }}
 
+),
+
+
+adjusting_invalid_values as (
+    select
+
+        sale_id,
+        sale_date,
+        customer_id,
+        product_id,
+        store_id,
+        quantity_ordered,
+        product_unit_price,
+        ABS(product_unit_price) * quantity_ordered as sale_total_value,
+        currency
+
+    from columns_rename
+    where quantity_ordered > 0
 )
 
-SELECT * FROM columns_rename
+SELECT * FROM adjusting_invalid_values
