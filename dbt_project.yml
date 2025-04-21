@@ -37,3 +37,6 @@ models:
     RAW_SIMULATION:
         staging:
           +materialized: view
+
+        intermediate:
+          +materialized: table
