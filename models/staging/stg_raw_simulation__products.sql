@@ -13,7 +13,7 @@ transforming_invalid_values AS (
     SELECT
         product_id,
         product_name,
-        ABS(product_price) as product_price,
+        ABS(product_price) AS product_price,
         CASE
             WHEN product_category = 'Roupaz' THEN 'Roupas'
             WHEN product_category = 'roupas' THEN 'Roupas'

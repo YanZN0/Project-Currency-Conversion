@@ -3,7 +3,7 @@ WITH columns_renamed AS (
 
         original_total_value,
         currency,
-        total_value_USD,
+        total_value_usd,
         data_conversion
 
     FROM {{ source('RAW_SIMULATION', 'EXCHANGE_RATES') }}
