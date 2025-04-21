@@ -24,7 +24,7 @@ adjusting_invalid_values as (
         product_id,
         store_id,
         quantity_ordered,
-        product_unit_price,
+        ABS(product_unit_price) as product_unit_price,
         ABS(product_unit_price) * quantity_ordered as sale_total_value,
         currency
 
