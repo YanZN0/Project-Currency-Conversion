@@ -9,10 +9,11 @@
 
 WITH applying_exchange_rates AS (
     SELECT
+
         s.sale_id,
         s.sale_date,
+        ROUND(sale_total_value, 2) AS original_total_value,
         s.currency,
-        ROUND(sale_total_value, 2) AS sale_total_value,
         CASE
             WHEN s.currency = 'BRL' THEN ROUND(s.sale_total_value * 5.81, 2)
             WHEN s.currency = 'MXN' THEN ROUND(s.sale_total_value * 19.71, 2)
@@ -25,10 +26,14 @@ WITH applying_exchange_rates AS (
     FROM {{ ref('stg_raw_simulation__sales') }} s
     LEFT JOIN {{ ref('stg_raw_simulation__exchange_rates') }} e
         ON s.currency = e.currency
+
+
 )
 
-{% if is_incremental() %}
-  where s.sale_id not in (select sale_id from {{ this }})
-{% endif %}
 
-SELECT * FROM applying_exchange_rates
+SELECT *
+FROM applying_exchange_rates
+
+{% if is_incremental() %}
+      where sale_id not in (select sale_id from {{ this }})
+{% endif %}
