@@ -7,3 +7,6 @@ Esse projeto envolve taxas de câmbio e conversão de moedas, nos gerando dados 
 ### Visão Geral dos Dados
 
 Para a inicialização do projeto consinstiu uma revisão dos dados necessários que estão presentes em tabelas do nosso database. Essa revisão foi de extrema importância para conhecer e entender mais específicadamente a estrutura e relacionamentos do banco de dados.
+
+
+

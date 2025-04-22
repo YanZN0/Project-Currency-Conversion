@@ -21,7 +21,7 @@ WITH applying_exchange_rates AS (
             WHEN s.currency = 'USD' THEN s.sale_total_value
         END AS total_value_usd,
 
-        CURRENT_DATE AS data_conversion
+        CURRENT_DATE AS date_conversion
 
     FROM {{ ref('stg_raw_simulation__sales') }} s
     LEFT JOIN {{ ref('stg_raw_simulation__exchange_rates') }} e

@@ -32,14 +32,6 @@ models:
   - name: stg_raw_simulation__exchange_rates
     description: Table with the aim of informing and calculating economic metrics from companies to USD through the exchange rate.
     columns:
-      - name: sale_id
-        description: Column with information about the sale ID.
-        data_tests:
-          - not_null
-          - unique
-          - relationships:
-              to: ref('stg_raw_simulation__sales')
-              field: sale_id
 
       - name: original_total_value
         description: Column that shows us the total value of the sale before being converted to USD.
@@ -137,10 +129,10 @@ models:
       - name: quantity_ordered
         description: Column with data on how many units of the product the customer ordered.
 
-      - name: unit_price
+      - name: product_unit_price
         description: Column with information on the unit price of the product ordered.
 
-      - name: total_value
+      - name: sale_total_value
         description: Column with information on the total value of the customer's order.
         data_tests:
           - not_null
