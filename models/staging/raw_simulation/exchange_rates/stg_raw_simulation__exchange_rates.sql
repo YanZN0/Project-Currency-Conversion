@@ -6,7 +6,7 @@ WITH columns_renamed AS (
         total_value_usd,
         date_conversion
 
-    FROM {{ source('RAW_SIMULATION', 'EXCHANGE_RATES') }}
+    FROM {{ sources('RAW_SIMULATION', 'EXCHANGE_RATES') }}
 
 )
 

@@ -1,0 +1,18 @@
+version: 2
+
+models:
+  - name: stg_raw_simulation__exchange_rates
+    description: Table with the aim of informing and calculating economic metrics from companies to USD through the exchange rate.
+    columns:
+
+      - name: original_total_value
+        description: Column that shows us the total value of the sale before being converted to USD.
+
+      - name: currency
+        description: Column with information about the currency used in the sale.
+
+      - name: total_value_usd
+        description: Column with information on the total value in USD calculated using the exchange rate.
+
+      - name: conversion_date
+        description: Column intended to inform the date and time when the currency conversion took place.

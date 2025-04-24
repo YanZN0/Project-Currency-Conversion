@@ -1,0 +1,10 @@
+version: 2
+
+sources:
+
+  - name: RAW_SIMULATION
+    schema: RAW_SIMULATION
+    database: RAW
+
+    tables:
+      - name: EXCHANGE_RATES

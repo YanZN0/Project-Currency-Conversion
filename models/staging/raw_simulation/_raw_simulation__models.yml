@@ -6,7 +6,7 @@ models:
     columns:
       - name: customer_id
         description: Individual customer ID column.
-        data_tests:
+        tests:
           - not_null
           - unique
 
@@ -24,40 +24,24 @@ models:
 
       - name: customer_vip
         description: Column that tells us whether a customer is VIP or not.
-        data_tests:
+        tests:
         - not_null
         - accepted_values:
             values: ['TRUE', 'FALSE']
-
-  - name: stg_raw_simulation__exchange_rates
-    description: Table with the aim of informing and calculating economic metrics from companies to USD through the exchange rate.
-    columns:
-
-      - name: original_total_value
-        description: Column that shows us the total value of the sale before being converted to USD.
-
-      - name: currency
-        description: Column with information about the currency used in the sale.
-
-      - name: total_value_usd
-        description: Column with information on the total value in USD calculated using the exchange rate.
-
-      - name: conversion_date
-        description: Column intended to inform the date and time when the currency conversion took place.
 
   - name: stg_raw_simulation__stock
     description: Table with the purpose of informing the products contained in the stores and the quantity available.
     columns:
       - name: product_id
         description: Column with the ID of the product contained in the store.
-        data_tests:
+        tests:
           - relationships:
               to: ref('stg_raw_simulation__products')
               field: product_id
 
       - name: store_id
         description: Column with the ID of the store that contains the product.
-        data_tests:
+        tests:
         - relationships:
               to: ref('stg_raw_simulation__stores')
               field: store_id
@@ -70,7 +54,7 @@ models:
     columns:
       - name: product_id
         description: Column with the individual ID of each product.
-        data_tests:
+        tests:
           - not_null
           - unique
 
@@ -82,7 +66,7 @@ models:
 
       - name: product_price
         description: Column that informs us of the price of the product.
-        data_tests:
+        tests:
           - not_null
 
   - name: stg_raw_simulation__stores
@@ -90,7 +74,7 @@ models:
     columns:
       - name: store_id
         description: Column with the individual ID of each store.
-        data_tests:
+        tests:
           - not_null
           - unique
 
@@ -108,7 +92,7 @@ models:
     columns:
       - name: sale_id
         description: Column with the individual ID of each sale present in the table.
-        data_tests:
+        tests:
           - not_null
           - unique
 
@@ -117,7 +101,7 @@ models:
 
       - name: customer_id
         description: Column with information about the ID of the customer who made the purchase.
-        data_tests:
+        tests:
           - not_null
 
       - name: product_id
@@ -134,12 +118,12 @@ models:
 
       - name: sale_total_value
         description: Column with information on the total value of the customer's order.
-        data_tests:
+        tests:
           - not_null
 
       - name: currency
         description: Column with information about the currency used to make the purchase.
-        data_tests:
+        tests:
           - not_null
           - accepted_values:
               values: ['BRL', 'USD', 'MXN', 'EUR', ]

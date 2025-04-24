@@ -6,7 +6,7 @@ models:
       columns:
         - name: sale_id
           description: Column with data on individual IDs of completed sales.
-          data_tests:
+          tests:
             - unique
             - not_null
 
@@ -15,21 +15,20 @@ models:
 
         - name: original_total_value
           description: Column with the total sale value before being converted. (original value)
-          data_tests:
+          tests:
             - not_null
 
         - name: currency
           description: Column with information on the currency used to complete the sale.
-          data_tests:
+          tests:
             - not_null
             - accepted_values:
                 values: ['BRL', 'USD', 'MXN', 'EUR', ]
 
         - name: total_value_usd
           description: Column where currency conversion takes place, total value to USD.
-          data_tests:
+          tests:
             - not_null
 
         - name: date_conversion
           description: Column describing the day the currency conversion occurred within the table, and the exchange rate used on that specific day.
-

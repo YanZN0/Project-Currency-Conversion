@@ -13,4 +13,3 @@ sources:
       - name: MAPEAMENTO_CLIENTE_PRODUTO
       - name: PRODUTOS
       - name: VENDAS
-      - name: EXCHANGE_RATES
