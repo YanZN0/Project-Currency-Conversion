@@ -1,7 +1,7 @@
 version: 2
 
 models:
-    - name: int_sales_with_exchange_rates
+    - name: int__sales_with_exchange_rates
       description: Incremental table with currency conversion of financial metrics to USD via exchange rate.
       columns:
         - name: sale_id
