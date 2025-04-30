@@ -37,7 +37,7 @@ SELECT * FROM metrics
 
 {% if is_incremental() %}
 
-    WHERE last_purchase > (
+    WHERE last_sale_product > (
         SELECT MAX(last_sale_product)
         FROM {{ this }}
         WHERE product_id = metrics.product_id

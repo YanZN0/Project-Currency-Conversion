@@ -1,7 +1,7 @@
 version: 2
 
 models:
-  - name: int__custumers_metrics
+  - name: int__customers_metrics
     description: >
       This table is intended to derive customer-level analyses,
       it focuses on columns that assess customer performance and aggregate important data, especially for the future,
