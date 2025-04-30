@@ -20,9 +20,9 @@ WITH applying_exchange_rates AS (
         s.currency,
         ROUND(sale_total_value, 2) AS original_total_value,
         CASE
-            WHEN s.currency = 'BRL' THEN ROUND(s.sale_total_value / 5.68, 2)
-            WHEN s.currency = 'MXN' THEN ROUND(s.sale_total_value / 19.63, 2)
-            WHEN s.currency = 'EUR' THEN ROUND(s.sale_total_value / 0.88, 2)
+            WHEN s.currency = 'BRL' THEN ROUND(s.sale_total_value * 0.18, 2)
+            WHEN s.currency = 'MXN' THEN ROUND(s.sale_total_value * 0.05, 2)
+            WHEN s.currency = 'EUR' THEN ROUND(s.sale_total_value * 1.14, 2)
             WHEN s.currency = 'USD' THEN s.sale_total_value
         END AS total_value_usd,
 
