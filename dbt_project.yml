@@ -34,9 +34,18 @@ models:
 
   project_currency_conversion:
 
-    RAW_SIMULATION:
-        staging:
+      staging:
+        raw_simulation:
+          +materialized: view
+        exchange_rates:
           +materialized: view
 
-        intermediate:
+      intermediate:
+        finance:
+          +materialized: table
+        sales:
+          +materialized: table
+
+      marts:
+        analytics:
           +materialized: table
