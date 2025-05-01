@@ -36,7 +36,6 @@ metrics AS (
 
 SELECT * FROM metrics
 
-
 {% if is_incremental() %}
 
     WHERE last_sale > (

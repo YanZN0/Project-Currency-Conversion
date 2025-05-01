@@ -16,6 +16,7 @@ metrics AS (
 
     SELECT
         p.product_id,
+        p.product_name,
         p.product_price,
         p.product_category,
         COUNT(s.sale_id) AS total_sales_count,
@@ -28,6 +29,7 @@ metrics AS (
     LEFT JOIN {{ ref('int__sales_with_exchange_rates') }} s ON p.product_id = s.product_id
     GROUP BY
         p.product_id,
+        p.product_name,
         p.product_price,
         p.product_category
 
