@@ -32,7 +32,6 @@ SELECT * FROM metrics
 
 
 
-
     WHERE last_sale > (
         SELECT MAX(last_sale)
         FROM RAW.RAW_SIMULATION.int__stores_metrics
