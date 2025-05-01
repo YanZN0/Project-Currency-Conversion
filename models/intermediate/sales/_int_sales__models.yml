@@ -16,7 +16,7 @@ models:
       - name: customer_name
         description: Customer name
 
-      - name: custumer_vip
+      - name: customer_vip
         description: Column tells us whether the customer is VIP or not.
         tests:
           - accepted_values:
