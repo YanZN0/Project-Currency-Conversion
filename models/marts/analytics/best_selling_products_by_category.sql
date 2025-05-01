@@ -22,8 +22,7 @@ best_selling_products_by_category_revenue AS (
 
         RANK() OVER (
             PARTITION BY p.product_category
-            ORDER BY ROUND(p.total_revenue_usd, 2) DESC
-        ) AS rank_products
+            ORDER BY ROUND(p.total_revenue_usd, 2) DESC) AS rank_products
 
     FROM products p
     QUALIFY rank_products <= 5
@@ -40,8 +39,7 @@ best_selling_products_by_category_orders AS (
 
         RANK() OVER (
             PARTITION BY p.product_category
-            ORDER BY p.total_sales_count DESC
-        ) AS rank_products
+            ORDER BY p.total_sales_count DESC) AS rank_products
 
     FROM products p
     QUALIFY rank_products <= 5
