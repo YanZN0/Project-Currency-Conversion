@@ -1,10 +1,10 @@
-with customers as (
-    select *
-    from {{ ref('int__customers_metrics') }}
+WITH customers AS (
+    SELECT *
+    FROM {{ ref('int__customers_metrics') }}
 ),
 
-customers_metrics_joined as (
-    select
+customers_metrics_joined AS (
+    SELECT
 
         customer_id,
         customer_name,
@@ -14,7 +14,7 @@ customers_metrics_joined as (
         first_purchase,
         last_purchase
 
-    from customers
+    FROM customers
 )
 
-select * from customers_metrics_joined
+SELECT * FROM customers_metrics_joined

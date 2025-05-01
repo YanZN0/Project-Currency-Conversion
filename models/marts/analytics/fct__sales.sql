@@ -1,24 +1,23 @@
-with sales as (
-    select *
-    from {{ ref('int__sales_with_exchange_rates') }}
+WITH sales AS (
+    SELECT *
+    FROM {{ ref('int__sales_with_exchange_rates') }}
 ),
 
+sales_with_metrics_usd AS (
+    SELECT
+        sale_id,
+        sale_date,
+        customer_id,
+        product_id,
+        store_id,
+        product_unit_price,
+        quantity_ordered,
+        original_total_value,
+        currency AS of_currency,
+        total_value_usd,
+        conversion_date
 
-sales_with_metrics_usd as (
-    select
-            sale_id,
-            sale_date,
-            customer_id,
-            product_id,
-            store_id,
-            product_unit_price,
-            quantity_ordered,
-            original_total_value,
-            currency as of_currency,
-            total_value_usd,
-            conversion_date
-
-    from sales
+    FROM sales
 )
 
-select * from sales_with_metrics_usd
+SELECT * FROM sales_with_metrics_usd

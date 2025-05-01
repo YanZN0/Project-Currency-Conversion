@@ -1,11 +1,11 @@
-with stores as (
-    select *
-    from {{ ref('int__stores_metrics') }}
+WITH stores AS (
+    SELECT *
+    FROM {{ ref('int__stores_metrics') }}
 ),
 
-stores_metrics_joined as (
+stores_metrics_joined AS (
 
-    select
+    SELECT
 
         store_id,
         store_name,
@@ -17,7 +17,7 @@ stores_metrics_joined as (
         first_sale,
         last_sale
 
-    from stores
+    FROM stores
 )
 
-select * from stores_metrics_joined
+SELECT * FROM stores_metrics_joined

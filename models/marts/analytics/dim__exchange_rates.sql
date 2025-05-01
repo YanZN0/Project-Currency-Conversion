@@ -1,24 +1,24 @@
-with exchange_rates as (
+WITH exchange_rates AS (
 
-    select *
-    from {{ ref('int__sales_with_exchange_rates') }}
+    SELECT *
+    FROM {{ ref('int__sales_with_exchange_rates') }}
 
 ),
 
-exchange_rates_separation as (
+exchange_rates_separation AS (
 
-    select
+    SELECT
 
-        currency as of_currency,
+        currency AS of_currency,
 
-        'USD' as to_currency,
+        'USD' AS to_currency,
 
-        ROUND(original_total_value / total_value_usd, 2) as exchange_rate_used,
+        ROUND(original_total_value / total_value_usd, 2) AS exchange_rate_used,
 
-        CURRENT_DATE as exchange_rate_date
+        CURRENT_DATE AS exchange_rate_date
 
-    from exchange_rates
+    FROM exchange_rates
 
 )
 
-select * from exchange_rates_separation
+SELECT * FROM exchange_rates_separation

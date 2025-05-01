@@ -1,10 +1,10 @@
-with products as (
-    select *
-    from {{ ref('int__products_metrics') }}
+WITH products AS (
+    SELECT *
+    FROM {{ ref('int__products_metrics') }}
 ),
 
-products_metrics_joined as (
-    select
+products_metrics_joined AS (
+    SELECT
 
         product_id,
         product_price,
@@ -15,7 +15,7 @@ products_metrics_joined as (
         first_sale_product,
         last_sale_product
 
-    from products
+    FROM products
 )
 
-select * from products_metrics_joined
+SELECT * FROM products_metrics_joined
