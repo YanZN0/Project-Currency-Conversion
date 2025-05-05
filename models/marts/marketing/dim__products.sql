@@ -7,6 +7,7 @@ products_metrics_joined AS (
     SELECT
 
         product_id,
+        product_name,
         product_price,
         product_category,
         total_sales_count,
