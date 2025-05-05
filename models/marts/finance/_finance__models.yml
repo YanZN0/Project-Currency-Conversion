@@ -2,7 +2,6 @@ version: 2
 
 
 models:
-
     - name: fct__sales
       description: >
         This table is fact, it stores important and informative data of the sales that occurred,
@@ -28,7 +27,6 @@ models:
 
         - name: product_unit_price
           description: Column with information on the unit price of the product ordered.
-          tests:
 
         - name: quantity_ordered
           description: Column with data on how many units of the product the customer ordered.
@@ -60,7 +58,7 @@ models:
       description: >
         This table is a dimension that contextualizes fct__sales,
         with this table we have informative data that we use to convert
-        the values ​​of financial metrics to the main currency USD.
+        the values of financial metrics to the main currency USD.
       colums:
         - name: of_currency
           description: Column with information on the original currency used in the purchase before conversion.
