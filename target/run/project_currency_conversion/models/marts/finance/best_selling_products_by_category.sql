@@ -1,15 +1,13 @@
-WITH products AS (
+
+  create or replace   view RAW.RAW_SIMULATION.best_selling_products_by_category
+
+   as (
+    WITH products AS (
 
     SELECT *
     FROM RAW.RAW_SIMULATION.dim__products
 ),
 
-sales AS (
-
-    SELECT *
-    FROM RAW.RAW_SIMULATION.fct__sales
-
-),
 
 best_selling_products_by_category_revenue AS (
 
@@ -68,3 +66,4 @@ SELECT
     'ORDERS' AS ranking_type
 
 FROM best_selling_products_by_category_orders
+  );

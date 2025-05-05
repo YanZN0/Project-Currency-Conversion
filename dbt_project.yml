@@ -57,7 +57,11 @@ models:
             node_color: "#c0c0c0"
 
       marts:
-        analytics:
+        finance:
           +materialized: table
           +docs:
-            node_color: "#e6b530" ## Cor Ouro para camada Gold.
+            node_color: "#e6b530"
+        marketing:
+          +materialized: table
+          +docs:
+            node_color: "#e6b530"

@@ -1,4 +1,8 @@
-WITH exchange_rates AS (
+
+  create or replace   view RAW.RAW_SIMULATION.dim__exchange_rates
+
+   as (
+    WITH exchange_rates AS (
 
     SELECT *
     FROM RAW.RAW_SIMULATION.int__sales_with_exchange_rates
@@ -22,3 +26,4 @@ exchange_rates_separation AS (
 )
 
 SELECT * FROM exchange_rates_separation
+  );

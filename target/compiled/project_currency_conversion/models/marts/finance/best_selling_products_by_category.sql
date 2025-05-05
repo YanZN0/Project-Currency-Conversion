@@ -4,12 +4,6 @@ WITH products AS (
     FROM RAW.RAW_SIMULATION.dim__products
 ),
 
-sales AS (
-
-    SELECT *
-    FROM RAW.RAW_SIMULATION.fct__sales
-
-),
 
 best_selling_products_by_category_revenue AS (
 
