@@ -4,12 +4,6 @@ WITH products AS (
     FROM {{ ref("dim__products") }}
 ),
 
-sales AS (
-
-    SELECT *
-    FROM {{ ref('fct__sales') }}
-
-),
 
 best_selling_products_by_category_revenue AS (
 
