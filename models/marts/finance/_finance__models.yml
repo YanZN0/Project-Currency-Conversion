@@ -2,82 +2,81 @@ version: 2
 
 
 models:
-    - name: fct__sales
-      description: >
-        This table is fact, it stores important and informative data of the sales that occurred,
-        with financial metrics updated to and converted to the main currency USD.
-      columns:
-        - name: sale_id
-          description: Column with data on individual IDs of completed sales.
-          tests:
-            - unique
-            - not_null
+  - name: fct__sales
+    description: >
+      This table is fact, it stores important and informative data of the sales that occurred,
+      with financial metrics updated to and converted to the main currency USD.
+    columns:
+      - name: sale_id
+        description: Column with data on individual IDs of completed sales.
+        tests:
+          - unique
+          - not_null
 
-        - name: sale_date
-          description: Column with the dates on which sales occurred.
+      - name: sale_date
+        description: Column with the dates on which sales occurred.
 
-        - name: customer_id
-          description: Individual customer ID column.
+      - name: customer_id
+        description: Individual customer ID column.
 
-        - name: product_id
-          description: Column with the dates on which sales occurred.
+      - name: product_id
+        description: Column with the dates on which sales occurred.
 
-        - name: store_id
-          description: Column that tells us the ID of the store where the customer made the purchase.
+      - name: store_id
+        description: Column that tells us the ID of the store where the customer made the purchase.
 
-        - name: product_unit_price
-          description: Column with information on the unit price of the product ordered.
+      - name: product_unit_price
+        description: Column with information on the unit price of the product ordered.
 
-        - name: quantity_ordered
-          description: Column with data on how many units of the product the customer ordered.
+      - name: quantity_ordered
+        description: Column with data on how many units of the product the customer ordered.
 
-        - name: currency
-          description: Column with information on the currency used to complete the sale.
-          tests:
-            - not_null
-            - accepted_values:
-                values: ['USD']
+      - name: currency
+        description: Column with information on the currency used to complete the sale.
+        tests:
+          - not_null
+          - accepted_values:
+              values: ['USD']
 
-        - name: original_total_value
-          description: Column with the total sale value before being converted. (original value)
-          tests:
-            - not_null
+      - name: original_total_value
+        description: Column with the total sale value before being converted. (original value)
+        tests:
+          - not_null
 
-        - name: total_value_usd
-          description: Column where currency conversion takes place, total value to USD.
-          tests:
-            - not_null
+      - name: total_value_usd
+        description: Column where currency conversion takes place, total value to USD.
+        tests:
+          - not_null
 
-        - name: conversion_date
-          description: >
+      - name: conversion_date
+        description: >
+          Column describing the day the currency conversion occurred within the table,
+          and the exchange rate used on that specific day.
 
-            Column describing the day the currency conversion occurred within the table,
-            and the exchange rate used on that specific day.
+  - name: dim__exchange_rates
+    description: >
+      This table is a dimension that contextualizes fct__sales,
+      with this table we have informative data that we use to convert
+      the values of financial metrics to the main currency USD.
+    colums:
+      - name: of_currency
+        description: Column with information on the original currency used in the purchase before conversion.
+        tests:
+          - not_null
+          - accepted_values:
+              values: ['BRL', 'USD', 'MXN', 'EUR']
 
-    - name: dim__exchange_rates
-      description: >
-        This table is a dimension that contextualizes fct__sales,
-        with this table we have informative data that we use to convert
-        the values of financial metrics to the main currency USD.
-      colums:
-        - name: of_currency
-          description: Column with information on the original currency used in the purchase before conversion.
-          tests:
-            - not_null
-            - accepted_values:
-                values: ['BRL', 'USD', 'MXN', 'EUR']
+      - name: to_currency
+        description: Column with information about the currency in which we have values, after conversion. (USD)
+        tests:
+          - not_null
+          - accepted_values:
+              values: ['USD']
 
-        - name: to_currency
-          description: Column with information about the currency in which we have values, after conversion. (USD)
-          tests:
-            - not_null
-            - accepted_values:
-                values: ['USD']
+      - name: exchange_rate_used
+        description: Exchange rate used to convert currencies.
+        tests:
+          - not_null
 
-        - name: exchange_rate_used
-          description: Exchange rate used to convert currencies.
-          tests:
-            - not_null
-
-        - name: exchange_rate_date
-          description: Column that tells us the date we searched and used the exchange rate.
+      - name: exchange_rate_date
+        description: Column that tells us the date we searched and used the exchange rate.
