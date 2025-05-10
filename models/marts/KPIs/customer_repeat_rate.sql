@@ -1,0 +1,21 @@
+{{ config(
+    tags=["KPI"]
+) }}
+
+
+with customers as (
+  select *
+  from {{ ref('dim__customers') }}
+),
+
+percentage_of_repeat_customer_purchase as (
+  select
+
+    round( count_if(total_customer_orders > 1) * 1.0 / count(*) * 100,
+    2
+    ) as repeat_customer_rate_percentage
+
+  from customers
+)
+
+select * from percentage_of_repeat_customer_purchase
