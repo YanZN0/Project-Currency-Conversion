@@ -10,7 +10,7 @@ products_metrics_joined AS (
         product_name,
         product_price,
         product_category,
-        total_sales_count,
+        total_unit_sold,
         total_revenue_usd,
         average_sale_value_usd,
         first_sale_product,
