@@ -23,8 +23,7 @@ metrics AS (
         MIN(s.sale_date) AS first_purchase,
         MAX(s.sale_date) AS last_purchase
     FROM source c
-    LEFT JOIN {{ ref('int__sales_with_exchange_rates') }} s ON c.customer_id = s.customer_id
-    WHERE s.sale_date IS NOT NULL
+    LEFT JOIN {{ ref('int__sales_with_exchange_rates') }} s ON c.customer_id = s.customer_id AND sale_date IS NOT NULL
     GROUP BY c.customer_id, c.customer_name, c.customer_vip
 )
 
