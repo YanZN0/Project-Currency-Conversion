@@ -4,7 +4,7 @@
 
 WITH customers AS (
     SELECT *
-    FROM {{ ref('dim__customers') }}
+    FROM {{ ref('dm__customers_metrics') }}
 ),
 
 ltv AS (

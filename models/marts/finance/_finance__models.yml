@@ -2,7 +2,7 @@ version: 2
 
 
 models:
-  - name: fct__sales
+  - name: fct_sales__finance_metrics_usd
     description: >
       This table is fact, it stores important and informative data of the sales that occurred,
       with financial metrics updated to and converted to the main currency USD.
@@ -48,7 +48,7 @@ models:
           Column describing the day the currency conversion occurred within the table,
           and the exchange rate used on that specific day.
 
-  - name: dim__exchange_rates
+  - name: dm__exchange_rates
     description: >
       This table is a dimension that contextualizes fct__sales,
       with this table we have informative data that we use to convert

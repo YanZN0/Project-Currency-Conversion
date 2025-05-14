@@ -9,7 +9,7 @@ WITH stores AS (
 
 sales AS (
     SELECT *
-    FROM {{ ref("fct__sales") }}
+    FROM {{ ref("fct_sales__finance_metrics_usd") }}
 ),
 
 store_sales_by_state_and_city AS (

@@ -5,7 +5,7 @@
 
 WITH customers AS (
     SELECT *
-    FROM {{ ref('dim__customers') }}
+    FROM {{ ref('dm__customers_metrics') }}
 ),
 
 percentage_of_repeat_customer_purchase AS (

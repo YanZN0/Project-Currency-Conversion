@@ -5,7 +5,7 @@
 WITH sales AS (
 
     SELECT *
-    FROM {{ ref("fct__sales") }}
+    FROM {{ ref("fct_sales__finance_metrics_usd") }}
 ),
 
 sales_by_day AS (

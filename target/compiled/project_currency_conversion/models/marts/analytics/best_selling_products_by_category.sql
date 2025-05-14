@@ -1,14 +1,9 @@
+
+
 WITH products AS (
 
     SELECT *
-    FROM RAW.RAW_SIMULATION.dim__products
-),
-
-sales AS (
-
-    SELECT *
-    FROM RAW.RAW_SIMULATION.fct__sales
-
+    FROM RAW.RAW_SIMULATION.dm__products_metrics
 ),
 
 best_selling_products_by_category_revenue AS (
@@ -22,7 +17,8 @@ best_selling_products_by_category_revenue AS (
 
         RANK() OVER (
             PARTITION BY p.product_category
-            ORDER BY ROUND(p.total_revenue_usd, 2) DESC) AS rank_products
+            ORDER BY ROUND(p.total_revenue_usd, 2) DESC
+        ) AS rank_products
 
     FROM products p
     QUALIFY rank_products <= 5
@@ -35,11 +31,12 @@ best_selling_products_by_category_orders AS (
         p.product_id,
         p.product_name,
         p.product_category,
-        p.total_sales_count,
+        p.total_unit_sold,
 
         RANK() OVER (
             PARTITION BY p.product_category
-            ORDER BY p.total_sales_count DESC) AS rank_products
+            ORDER BY p.total_sales_count DESC
+        ) AS rank_products
 
     FROM products p
     QUALIFY rank_products <= 5

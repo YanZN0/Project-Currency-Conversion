@@ -5,12 +5,12 @@
 WITH sales AS (
 
     SELECT *
-    FROM {{ ref("fct__sales") }}
+    FROM {{ ref("fct_sales__finance_metrics_usd") }}
 ),
 
 customers AS (
     SELECT *
-    FROM {{ ref('dim__customers') }}
+    FROM {{ ref('dm__customers_metrics') }}
 ),
 
 top_products_per_customer AS (

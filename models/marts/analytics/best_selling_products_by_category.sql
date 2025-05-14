@@ -5,7 +5,7 @@
 WITH products AS (
 
     SELECT *
-    FROM {{ ref("dim__products") }}
+    FROM {{ ref("dm__products_metrics") }}
 ),
 
 best_selling_products_by_category_revenue AS (

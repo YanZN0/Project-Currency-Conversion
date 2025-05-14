@@ -2,7 +2,7 @@ version: 2
 
 models:
 
-  - name: dim__customers
+  - name: dm__customers_metrics
     description: >
       This table is a dimension, it contains data with metrics that evaluate the customer's performance
       throughout their life cycle within the company,
@@ -39,7 +39,7 @@ models:
         description: The customer's last purchase within the company.
 
 
-  - name: dim__products
+  - name: dm__products_metrics
     description: >
       This table is a dimension, which has information to derive analyses at the product level,
       with a focus on columns that evaluate the product's performance over the company's time,
@@ -77,7 +77,7 @@ models:
         description: Last sale made in which the product is related.
 
 
-  - name: dim__stores
+  - name: dm__stores_metrics
     description: >
       This table is a dimension, which aims to analyze the company's stores, focusing on metrics that evaluate
       their performance within the company in terms of sales and aggregates data for strategic analyses.

@@ -5,13 +5,13 @@
 WITH products AS (
 
     SELECT *
-    FROM {{ ref("dim__products") }}
+    FROM {{ ref("dm__products_metrics") }}
 ),
 
 sales AS (
 
     SELECT *
-    FROM {{ ref("fct__sales") }}
+    FROM {{ ref("fct_sales__finance_metrics_usd") }}
 ),
 
 revenue_and_unit_month AS (

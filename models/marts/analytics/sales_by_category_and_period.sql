@@ -2,6 +2,12 @@
     tags=["KPI"]
 ) }}
 
+sales AS (
+
+    SELECT *
+    FROM {{ ref("fct_sales__finance_metrics_usd") }}
+),
+
 
 strategic_analysis as (
     SELECT
