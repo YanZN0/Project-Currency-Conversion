@@ -1,3 +1,5 @@
+
+
 WITH products AS (
 
     SELECT *

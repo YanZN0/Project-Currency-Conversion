@@ -1,8 +1,10 @@
 
-  create or replace   view RAW.RAW_SIMULATION.best_selling_products_by_category
 
-   as (
-    WITH products AS (
+
+
+        create or replace transient table RAW.RAW_SIMULATION.best_selling_products_by_category
+         as
+        (WITH products AS (
 
     SELECT *
     FROM RAW.RAW_SIMULATION.dim__products
@@ -66,4 +68,4 @@ SELECT
     'ORDERS' AS ranking_type
 
 FROM best_selling_products_by_category_orders
-  );
+        );

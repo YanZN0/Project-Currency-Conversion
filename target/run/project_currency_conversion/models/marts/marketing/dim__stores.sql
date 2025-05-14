@@ -1,8 +1,10 @@
 
-  create or replace   view RAW.RAW_SIMULATION.dim__stores
 
-   as (
-    WITH stores AS (
+
+
+        create or replace transient table RAW.RAW_SIMULATION.dim__stores
+         as
+        (WITH stores AS (
     SELECT *
     FROM RAW.RAW_SIMULATION.int__stores_metrics
 ),
@@ -25,4 +27,4 @@ stores_metrics_joined AS (
 )
 
 SELECT * FROM stores_metrics_joined
-  );
+        );

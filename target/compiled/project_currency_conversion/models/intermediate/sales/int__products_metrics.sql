@@ -13,9 +13,9 @@ metrics AS (
         p.product_name,
         p.product_price,
         p.product_category,
-        COUNT(s.sale_id) AS total_sales_count,
+        COUNT(s.quantity_ordered) AS total_unit_sold,
         SUM(total_value_usd) AS total_revenue_usd,
-        ROUND(total_revenue_usd / total_sales_count, 2) AS average_sale_value_usd,
+        ROUND(total_revenue_usd / total_unit_sold, 2) AS average_sale_value_usd,
         MIN(s.sale_date) AS first_sale_product,
         MAX(s.sale_date) AS last_sale_product
 
