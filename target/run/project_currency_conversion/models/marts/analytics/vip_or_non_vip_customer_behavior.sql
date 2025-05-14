@@ -1,4 +1,8 @@
 
+  create or replace   view RAW.RAW_SIMULATION.vip_or_non_vip_customer_behavior
+  
+   as (
+    
 
 
 WITH customers AS (
@@ -72,3 +76,5 @@ SELECT
     rk.product_category AS most_purchased_category
 FROM behavior_vip_or_non_vip b
 LEFT JOIN ranked_categories rk ON b.customer_vip = rk.customer_vip
+  );
+

@@ -1,75 +1,73 @@
 
+  create or replace   view RAW.RAW_SIMULATION.best_selling_products_by_category
+  
+   as (
+    
 
+WITH products AS (
 
-
-        create or replace transient table RAW.RAW_SIMULATION.best_selling_products_by_category
-         as
-        (with products as (
-
-    select *
-    from RAW.RAW_SIMULATION.dim__products
+    SELECT *
+    FROM RAW.RAW_SIMULATION.dm__products_metrics
 ),
 
-sales as (
+best_selling_products_by_category_revenue AS (
 
-    select *
-    from RAW.RAW_SIMULATION.fct__sales
-
-),
-
-
-best_selling_products_by_category_revenue as (
-
-    select
+    SELECT
 
         p.product_id,
         p.product_name,
         p.product_category,
-        total_revenue_usd,
+        p.total_revenue_usd,
 
-        RANK() OVER (PARTITION BY p.product_category ORDER BY ROUND(p.total_revenue_usd, 2) DESC) as rank_products
+        RANK() OVER (
+            PARTITION BY p.product_category
+            ORDER BY ROUND(p.total_revenue_usd, 2) DESC
+        ) AS rank_products
 
-
-    from products p
-    qualify rank_products <= 5
+    FROM products p
+    QUALIFY rank_products <= 5
 ),
 
-best_selling_products_by_category_orders as (
+best_selling_products_by_category_orders AS (
 
-    select
+    SELECT
 
         p.product_id,
         p.product_name,
         p.product_category,
-        total_sales_count,
+        p.total_unit_sold,
 
-        RANK() OVER (PARTITION BY p.product_category ORDER BY p.total_sales_count DESC) as rank_products
+        RANK() OVER (
+            PARTITION BY p.product_category
+            ORDER BY total_unit_sold DESC
+        ) AS rank_products
 
-    from products p
-    qualify rank_products <= 5
+    FROM products p
+    QUALIFY rank_products <= 5
 )
 
-select
+SELECT
 
     product_id,
     product_name,
     product_category,
-    ROUND(total_revenue_usd) as total_revenue_and_orders,
+    ROUND(total_revenue_usd) AS total_revenue_and_orders,
     rank_products,
-    'REVENUE' as ranking_type
+    'REVENUE' AS ranking_type
 
-from best_selling_products_by_category_revenue
+FROM best_selling_products_by_category_revenue
 
-union all
+UNION ALL
 
-select
+SELECT
 
     product_id,
     product_name,
     product_category,
-    total_sales_count as total_sales,
+    total_unit_sold AS total_sales,
     rank_products,
-    'ORDERS' as ranking_type
+    'ORDERS' AS ranking_type
 
-from best_selling_products_by_category_orders
-        );
+FROM best_selling_products_by_category_orders
+  );
+

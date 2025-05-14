@@ -1,6 +1,6 @@
 
   create or replace   view RAW.RAW_SIMULATION.stg_raw_simulation__stores
-
+  
    as (
     WITH columns_rename AS (
     SELECT
@@ -15,3 +15,4 @@
 
 SELECT * FROM columns_rename
   );
+

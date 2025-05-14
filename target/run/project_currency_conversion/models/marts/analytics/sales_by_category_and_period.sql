@@ -1,4 +1,8 @@
 
+  create or replace   view RAW.RAW_SIMULATION.sales_by_category_and_period
+  
+   as (
+    
 
 WITH sales AS (
 
@@ -35,3 +39,5 @@ strategic_analysis as (
 )
 
 SELECT * FROM strategic_analysis
+  );
+

@@ -1,4 +1,8 @@
-WITH sales AS (
+
+  create or replace   view RAW.RAW_SIMULATION.fct_sales__finance_metrics_usd
+  
+   as (
+    WITH sales AS (
     SELECT *
     FROM RAW.RAW_SIMULATION.int__sales_with_exchange_rates
 ),
@@ -20,3 +24,5 @@ sales_with_metrics_usd AS (
 )
 
 SELECT * FROM sales_with_metrics_usd
+  );
+

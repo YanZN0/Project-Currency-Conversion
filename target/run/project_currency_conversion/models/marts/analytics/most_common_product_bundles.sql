@@ -1,4 +1,8 @@
 
+  create or replace   view RAW.RAW_SIMULATION.most_common_product_bundles
+  
+   as (
+    
 
 WITH sales AS (
 
@@ -41,3 +45,5 @@ product_pairs AS (
 
 SELECT DISTINCT *
 FROM product_pairs
+  );
+

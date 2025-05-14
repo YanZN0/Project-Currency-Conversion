@@ -2,10 +2,16 @@
     tags=["KPI"]
 ) }}
 
-sales AS (
+WITH sales AS (
 
     SELECT *
     FROM {{ ref("fct_sales__finance_metrics_usd") }}
+),
+
+products AS (
+
+    SELECT *
+    FROM {{ ref("dm__products_metrics") }}
 ),
 
 

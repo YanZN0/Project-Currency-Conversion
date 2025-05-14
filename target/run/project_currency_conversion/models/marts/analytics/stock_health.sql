@@ -1,8 +1,10 @@
 
-  create or replace   view RAW.RAW_SIMULATION.stock_health
+  
+    
 
-   as (
-
+        create or replace transient table RAW.RAW_SIMULATION.stock_health
+         as
+        (
 
 WITH stock AS (
     SELECT *
@@ -25,4 +27,6 @@ stock_levels AS (
 )
 
 SELECT * FROM stock_levels
-  );
+        );
+      
+  

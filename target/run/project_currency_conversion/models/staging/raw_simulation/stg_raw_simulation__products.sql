@@ -1,6 +1,6 @@
 
   create or replace   view RAW.RAW_SIMULATION.stg_raw_simulation__products
-
+  
    as (
     WITH columns_rename AS (
     SELECT
@@ -29,3 +29,4 @@ transforming_invalid_values AS (
 
 SELECT * FROM transforming_invalid_values
   );
+

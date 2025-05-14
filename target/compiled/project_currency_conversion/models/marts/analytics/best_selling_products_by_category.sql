@@ -35,7 +35,7 @@ best_selling_products_by_category_orders AS (
 
         RANK() OVER (
             PARTITION BY p.product_category
-            ORDER BY p.total_sales_count DESC
+            ORDER BY total_unit_sold DESC
         ) AS rank_products
 
     FROM products p
@@ -60,7 +60,7 @@ SELECT
     product_id,
     product_name,
     product_category,
-    total_sales_count AS total_sales,
+    total_unit_sold AS total_sales,
     rank_products,
     'ORDERS' AS ranking_type
 

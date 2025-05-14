@@ -34,41 +34,43 @@ clean-targets:         # directories to be removed by `dbt clean`
 
 models:
 
-      staging:
-        raw_simulation:
-          +materialized: view
-          +docs:
-            node_color: "#cd7f32"
+  project_currency_conversion:
 
-        exchange_rates:
-          +materialized: view
-          +docs:
-            node_color: "#cd7f32"
+    staging:
+      raw_simulation:
+        +materialized: view
+        +docs:
+          node_color: "#cd7f32"
+
+      exchange_rates:
+        +materialized: view
+        +docs:
+          node_color: "#cd7f32"
 
 
-      intermediate:
-        finance:
-          +materialized: table
-          +docs:
-            node_color: "#c0c0c0"
+    intermediate:
+      finance:
+        +materialized: table
+        +docs:
+          node_color: "#c0c0c0"
 
-        sales:
-          +materialized: table
-          +docs:
-            node_color: "#c0c0c0"
+      sales:
+        +materialized: table
+        +docs:
+          node_color: "#c0c0c0"
 
-      marts:
-        finance:
-          +materialized: table
-          +docs:
-            node_color: "#e6b530"
+    marts:
+      finance:
+        +materialized: table
+        +docs:
+          node_color: "#e6b530"
 
-        kpis:
-          +materialized: table
-          +docs:
-            node_color: "#e6b530"
+      analytics:
+        +materialized: table
+        +docs:
+          node_color: "#e6b530"
 
-        marketing:
+      marketing:
           +materialized: table
           +docs:
             node_color: "#e6b530"

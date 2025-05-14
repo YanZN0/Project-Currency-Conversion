@@ -1,4 +1,8 @@
 
+  create or replace   view RAW.RAW_SIMULATION.sales_per_day_and_average_ticket
+  
+   as (
+    
 
 WITH sales AS (
 
@@ -17,3 +21,5 @@ sales_by_day AS (
 
 SELECT * FROM sales_by_day
 ORDER BY sale_date
+  );
+

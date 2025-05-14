@@ -1,4 +1,8 @@
-WITH products AS (
+
+  create or replace   view RAW.RAW_SIMULATION.dm__products_metrics
+  
+   as (
+    WITH products AS (
     SELECT *
     FROM RAW.RAW_SIMULATION.int__products_metrics
 ),
@@ -20,3 +24,5 @@ products_metrics_joined AS (
 )
 
 SELECT * FROM products_metrics_joined
+  );
+

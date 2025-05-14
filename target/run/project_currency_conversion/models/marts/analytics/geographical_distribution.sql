@@ -1,4 +1,8 @@
 
+  create or replace   view RAW.RAW_SIMULATION.geographical_distribution
+  
+   as (
+    
 
 WITH stores AS (
     SELECT *
@@ -23,3 +27,5 @@ store_sales_by_state_and_city AS (
 )
 
 SELECT * FROM store_sales_by_state_and_city
+  );
+

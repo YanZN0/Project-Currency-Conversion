@@ -1,6 +1,6 @@
 
   create or replace   view RAW.RAW_SIMULATION.stg_raw_simulation__sales
-
+  
    as (
     WITH columns_rename AS (
     SELECT
@@ -37,3 +37,4 @@ adjusting_invalid_values AS (
 
 SELECT * FROM adjusting_invalid_values
   );
+

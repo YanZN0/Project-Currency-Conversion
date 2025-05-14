@@ -1,4 +1,8 @@
-WITH customers AS (
+
+  create or replace   view RAW.RAW_SIMULATION.dm__customers_metrics
+  
+   as (
+    WITH customers AS (
     SELECT *
     FROM RAW.RAW_SIMULATION.int__customers_metrics
 ),
@@ -18,3 +22,5 @@ customers_metrics_joined AS (
 )
 
 SELECT * FROM customers_metrics_joined
+  );
+
