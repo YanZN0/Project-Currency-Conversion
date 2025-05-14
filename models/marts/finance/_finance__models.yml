@@ -38,13 +38,8 @@ models:
           - accepted_values:
               values: ['USD']
 
-      - name: original_total_value
+      - name: total_value
         description: Column with the total sale value before being converted. (original value)
-        tests:
-          - not_null
-
-      - name: total_value_usd
-        description: Column where currency conversion takes place, total value to USD.
         tests:
           - not_null
 

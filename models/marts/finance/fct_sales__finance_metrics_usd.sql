@@ -12,8 +12,8 @@ sales_with_metrics_usd AS (
         store_id,
         product_unit_price,
         quantity_ordered,
-        'USD' as currency,
-        total_value_usd as total_value,
+        'USD' AS currency,
+        total_value_usd AS total_value,
         conversion_date
 
     FROM sales
