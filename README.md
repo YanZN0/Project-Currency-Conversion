@@ -31,10 +31,3 @@ A modelagem de dados do projeto foi construída através da documentação ofici
 
 Utilizei parte da Arquitetura Medalhão como principal fonte de inspiração para a modelagem de dados, mesmo que alguns princípios da arquitetura não tenham sido todos aplicados ao projeto, me serviu como uma boa base. [
 (dataengineeringwiki)]("https://dataengineering.wiki/Concepts/Data+Architecture/Medallion+Architecture")
-
-
-
-
-
-
-
