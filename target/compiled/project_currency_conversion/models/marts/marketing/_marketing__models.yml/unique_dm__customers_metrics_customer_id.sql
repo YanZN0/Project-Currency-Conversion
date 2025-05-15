@@ -1,6 +1,6 @@
 
-
-
+    
+    
 
 select
     customer_id as unique_field,
@@ -10,3 +10,5 @@ from RAW.RAW_SIMULATION.dm__customers_metrics
 where customer_id is not null
 group by customer_id
 having count(*) > 1
+
+

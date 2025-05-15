@@ -1,8 +1,8 @@
 
   create or replace   view RAW.RAW_SIMULATION.customer_repeat_rate
-  
+
    as (
-    
+
 
 
 WITH customers AS (
@@ -23,4 +23,3 @@ percentage_of_repeat_customer_purchase AS (
 
 SELECT * FROM percentage_of_repeat_customer_purchase
   );
-

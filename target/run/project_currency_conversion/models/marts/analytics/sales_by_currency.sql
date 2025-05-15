@@ -1,8 +1,8 @@
 
   create or replace   view RAW.RAW_SIMULATION.sales_by_currency
-  
+
    as (
-    
+
 
 WITH sales AS (
     SELECT *
@@ -41,4 +41,3 @@ sales_by_currency AS (
 SELECT * FROM sales_by_currency
 ORDER BY percentage_of_foreign_exchange_exposure DESC
   );
-

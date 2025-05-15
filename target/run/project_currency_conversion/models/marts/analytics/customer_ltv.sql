@@ -1,8 +1,8 @@
 
   create or replace   view RAW.RAW_SIMULATION.customer_ltv
-  
+
    as (
-    
+
 
 WITH customers AS (
     SELECT *
@@ -19,4 +19,3 @@ ltv AS (
 
 SELECT * FROM ltv
   );
-

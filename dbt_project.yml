@@ -68,7 +68,7 @@ models:
       analytics:
         +materialized: table
         +docs:
-          node_color: "#e6b530"
+          node_color: '#FF0000'
 
       marketing:
           +materialized: table

@@ -1,6 +1,6 @@
 
   create or replace   view RAW.RAW_SIMULATION.stg_raw_simulation__exchange_rates
-  
+
    as (
     WITH columns_renamed AS (
     SELECT
@@ -16,4 +16,3 @@
 
 SELECT * FROM columns_renamed
   );
-

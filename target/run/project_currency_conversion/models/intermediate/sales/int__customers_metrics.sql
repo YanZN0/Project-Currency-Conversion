@@ -1,25 +1,25 @@
 -- back compat for old kwarg name
-  
-  begin;
-    
-        
-            
-	    
-	    
-            
-        
-    
 
-    
+  begin;
+
+
+
+
+
+
+
+
+
+
 
     merge into RAW.RAW_SIMULATION.int__customers_metrics as DBT_INTERNAL_DEST
         using RAW.RAW_SIMULATION.int__customers_metrics__dbt_tmp as DBT_INTERNAL_SOURCE
         on ((DBT_INTERNAL_SOURCE.customer_id = DBT_INTERNAL_DEST.customer_id))
 
-    
+
     when matched then update set
         "CUSTOMER_ID" = DBT_INTERNAL_SOURCE."CUSTOMER_ID","CUSTOMER_NAME" = DBT_INTERNAL_SOURCE."CUSTOMER_NAME","CUSTOMER_VIP" = DBT_INTERNAL_SOURCE."CUSTOMER_VIP","TOTAL_CUSTOMER_ORDERS" = DBT_INTERNAL_SOURCE."TOTAL_CUSTOMER_ORDERS","TOTAL_SPEND" = DBT_INTERNAL_SOURCE."TOTAL_SPEND","FIRST_PURCHASE" = DBT_INTERNAL_SOURCE."FIRST_PURCHASE","LAST_PURCHASE" = DBT_INTERNAL_SOURCE."LAST_PURCHASE"
-    
+
 
     when not matched then insert
         ("CUSTOMER_ID", "CUSTOMER_NAME", "CUSTOMER_VIP", "TOTAL_CUSTOMER_ORDERS", "TOTAL_SPEND", "FIRST_PURCHASE", "LAST_PURCHASE")

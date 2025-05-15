@@ -1,6 +1,6 @@
 
-
-
+    
+    
 
 select
     currency as unique_field,
@@ -10,3 +10,5 @@ from RAW.RAW_SIMULATION.sales_by_currency
 where currency is not null
 group by currency
 having count(*) > 1
+
+

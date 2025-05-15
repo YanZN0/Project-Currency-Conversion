@@ -1,6 +1,6 @@
 
   create or replace   view RAW.RAW_SIMULATION.dm__exchange_rates
-  
+
    as (
     WITH exchange_rates AS (
 
@@ -27,4 +27,3 @@ exchange_rates_separation AS (
 
 SELECT * FROM exchange_rates_separation
   );
-

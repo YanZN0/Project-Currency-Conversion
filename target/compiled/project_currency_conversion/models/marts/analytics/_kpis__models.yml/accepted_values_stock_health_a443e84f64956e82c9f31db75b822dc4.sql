@@ -1,6 +1,6 @@
 
-
-
+    
+    
 
 with all_values as (
 
@@ -18,3 +18,5 @@ from all_values
 where value_field not in (
     'OK','ZERO_STOCK','NEGATIVE_STOCK'
 )
+
+

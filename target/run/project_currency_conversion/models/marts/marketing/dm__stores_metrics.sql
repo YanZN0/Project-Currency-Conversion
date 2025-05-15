@@ -1,6 +1,6 @@
 
   create or replace   view RAW.RAW_SIMULATION.dm__stores_metrics
-  
+
    as (
     WITH stores AS (
     SELECT *
@@ -26,4 +26,3 @@ stores_metrics_joined AS (
 
 SELECT * FROM stores_metrics_joined
   );
-

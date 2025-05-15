@@ -1,6 +1,6 @@
 
   create or replace   view RAW.RAW_SIMULATION.stg_raw_simulation__customer_product_mapping
-  
+
    as (
     WITH columns_rename AS (
     SELECT
@@ -14,4 +14,3 @@
 
 SELECT * FROM columns_rename
   );
-

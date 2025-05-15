@@ -1,6 +1,6 @@
 
-  
-    
+
+
 
         create or replace transient table RAW.RAW_SIMULATION.stock_health
          as
@@ -28,5 +28,5 @@ stock_levels AS (
 
 SELECT * FROM stock_levels
         );
-      
-  
+
+

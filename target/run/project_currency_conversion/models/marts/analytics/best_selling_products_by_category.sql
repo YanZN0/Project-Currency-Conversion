@@ -1,8 +1,8 @@
 
   create or replace   view RAW.RAW_SIMULATION.best_selling_products_by_category
-  
+
    as (
-    
+
 
 WITH products AS (
 
@@ -70,4 +70,3 @@ SELECT
 
 FROM best_selling_products_by_category_orders
   );
-

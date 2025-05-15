@@ -1,6 +1,6 @@
 
-
-
+    
+    
 
 with child as (
     select store_id as from_field
@@ -21,3 +21,5 @@ left join parent
     on child.from_field = parent.to_field
 
 where parent.to_field is null
+
+

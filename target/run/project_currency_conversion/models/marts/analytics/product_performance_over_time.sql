@@ -1,8 +1,8 @@
 
   create or replace   view RAW.RAW_SIMULATION.product_performance_over_time
-  
+
    as (
-    
+
 
 WITH products AS (
 
@@ -66,4 +66,3 @@ FROM revenue_and_unit_week
 
 ORDER BY date, product_id
   );
-
