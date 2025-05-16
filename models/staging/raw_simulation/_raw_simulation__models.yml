@@ -103,12 +103,25 @@ models:
         description: Column with information about the ID of the customer who made the purchase.
         tests:
           - not_null
+          - relationships:
+                to: ref('stg_raw_simulation__customers')
+                field: customer_id_id
 
       - name: product_id
         description: Column with information about the product ID that was purchased by the customer.
+        tests:
+          - not_null
+          - relationships:
+                to: ref('stg_raw_simulation__products')
+                field: product_id
 
       - name: store_id
         description: Column that tells us the ID of the store where the customer made the purchase.
+        tests:
+          - not_null
+          - relationships:
+                to: ref('stg_raw_simulation__stores')
+                field: store_id
 
       - name: quantity_ordered
         description: Column with data on how many units of the product the customer ordered.
